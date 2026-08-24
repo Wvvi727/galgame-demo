@@ -1,0 +1,93 @@
+#day {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+
+    font-size: 22px;
+}
+
+body {
+    margin: 0;
+    background-color: #111;
+    color: white;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+#game {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+#status {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+
+    position: absolute;
+    top: 30px;
+    right: 40px;
+
+    padding: 15px 30px;
+
+    background-color: #222;
+    border: 1px solid #555;
+
+    line-height: 1.8;
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    .status-item {
+    display: grid;
+    grid-template-columns: 65px 25px 40px;
+    line-height: 1.8;
+    }
+
+    .status-name {
+    text-align: left;
+    }
+    
+    .status-colon {
+    text-align: center;
+    }
+
+    .status-value {
+    text-align: right;
+    }
+}
+
+#story {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 400px;
+
+    min-height: 400px;
+
+    font-size: 22px;
+    line-height: 2;
+
+    white-space: pre-line;
+}
+
+button {
+    position: absolute;
+    bottom: 40px;
+    right: 10%;
+
+    padding: 10px 30px;
+
+    background-color: #333;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #555;
+}
