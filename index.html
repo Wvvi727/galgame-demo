@@ -16,13 +16,13 @@
             <div class="status-item">
                 <span class="status-name">好感度</span>
                 <span class="status-colon">：</span>
-                <span class="status-value">0</span>
+                <span id="affection-value" class="status-value"></span>
             </div>
 
             <div class="status-item">
                 <span class="status-name">SAN</span>
                 <span class="status-colon">：</span>
-                <span class="status-value">50</span>
+                <span id="san-value" class="status-value"></span>
             </div>
         </div>
 
@@ -30,7 +30,10 @@
             <p id="story-text"></p>
         </div>
 
+        <div id="choices"></div>
+
         <button id="next-button">繼續</button>
+        <button id="restart-button">↻</button>
     </div>
 
     <script src="script.js"></script>

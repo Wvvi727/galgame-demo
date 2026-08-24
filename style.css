@@ -1,11 +1,3 @@
-#day {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-
-    font-size: 22px;
-}
-
 body {
     margin: 0;
     background-color: #111;
@@ -14,17 +6,31 @@ body {
 }
 
 #game {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
     position: relative;
     box-sizing: border-box;
 }
 
-#status {
+
+/* ====================
+   日期
+   ==================== */
+
+#day {
     position: absolute;
     top: 30px;
-    right: 40px;
+    left: 40px;
 
+    font-size: 22px;
+}
+
+
+/* ====================
+   右上角數值
+   ==================== */
+
+#status {
     position: absolute;
     top: 30px;
     right: 40px;
@@ -34,37 +40,42 @@ body {
     background-color: #222;
     border: 1px solid #555;
 
-    line-height: 1.8;
     font-size: 18px;
-
     line-height: 1.8;
+}
 
-    .status-item {
+.status-item {
     display: grid;
     grid-template-columns: 65px 25px 40px;
+
     line-height: 1.8;
-    }
-
-    .status-name {
-    text-align: left;
-    }
-    
-    .status-colon {
-    text-align: center;
-    }
-
-    .status-value {
-    text-align: right;
-    }
 }
+
+.status-name {
+    text-align: left;
+}
+
+.status-colon {
+    text-align: center;
+}
+
+.status-value {
+    text-align: right;
+}
+
+
+/* ====================
+   劇情文字
+   ==================== */
 
 #story {
     position: absolute;
+
     left: 10%;
     right: 10%;
-    bottom: 400px;
+    top: 25%;
 
-    min-height: 400px;
+    min-height: 250px;
 
     font-size: 22px;
     line-height: 2;
@@ -72,10 +83,54 @@ body {
     white-space: pre-line;
 }
 
-button {
+
+/* ====================
+   選項
+   ==================== */
+
+#choices {
     position: absolute;
-    bottom: 40px;
+
+    left: 10%;
     right: 10%;
+    top: 65%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 15px;
+}
+
+
+/* 選項按鈕 */
+
+#choices button {
+    position: static;
+
+    padding: 10px 20px;
+
+    background-color: #333;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* ====================
+   繼續按鈕
+   ==================== */
+
+#next-button {
+    position: absolute;
+
+    bottom: 40px;
+    left: 50%;
+
+    transform: translateX(-50%);
 
     padding: 10px 30px;
 
@@ -88,6 +143,89 @@ button {
     font-size: 18px;
 }
 
+
+/* 滑鼠移上去 */
+
 button:hover {
     background-color: #555;
 }
+
+@media (max-width: 600px) {
+
+    #day {
+        top: 20px;
+        left: 20px;
+        font-size: 18px;
+    }
+
+    #status {
+        top: 20px;
+        right: 20px;
+
+        padding: 10px 15px;
+
+        font-size: 15px;
+    }
+
+    .status-item {
+        grid-template-columns: 55px 20px 35px;
+    }
+
+    #story {
+        left: 8%;
+        right: 8%;
+        top: 22%;
+
+        min-height: 0;
+
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    #choices {
+        left: 8%;
+        right: 8%;
+        top: 60%;
+
+        gap: 10px;
+    }
+
+    #choices button {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+
+    #next-button {
+        bottom: 25px;
+
+        padding: 8px 25px;
+
+        font-size: 16px;
+    }
+    
+
+}
+
+#restart-button {
+    display: none;
+
+    position: absolute;
+
+    bottom: 40px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
+
+    background-color: #333;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+
+    font-size: 26px;
+    }
