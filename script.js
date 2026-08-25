@@ -33,7 +33,7 @@ const story = {
 
     observe: {
         type: "text",
-        text: "環顧四週，這裡還挺熱鬧的，可以說是座無虛席。\n\n店員從你身邊匆匆走過，似乎並沒有注意到你。",
+        text: "環顧四週，這裡還挺熱鬧的，可以說是座無虛席。\n店員從你身邊匆匆走過，似乎並沒有注意到你。",
         next: "choice"
     },
 
@@ -46,55 +46,70 @@ const story = {
                 text: "在客桌間靈活穿梭、老鼠耳朵的淺藍髮店員。",
                 next: "encore_start",
                 character: "encore",
-            },
-
-            {
-                text: "暫時還沒有。",
-                next: "ignore"
             }
+
         ]
     },
 
     encore_start: {
         type: "text",
-        text: "你走過去向她打了聲招呼。",
-        next: "encore_01"
+        text: "你對她招了招手。",
+        next: "encore_day1_01"
     },
 
-    encore_01: {
+    encore_day1_01: {
         type: "choice",
-        text: "她停下手邊的工作，轉過身來看著你。\n\n「你好呀。」",
+        text: "她注意到你的招呼，蹦跳著來到你的位置桌邊。\n在她靠近時，你也看清了她胸前的員工名牌，她叫做Encore。\n\n「你好！有需要什麼幫助嗎？」",
         choices: [
             {
-                text: "很隨便的回應她的打招呼。",
-                next: "encore_end_01",
-                 effects: {
-                    affection: 3,
-                    san: -5
-                }
+                text: "「有推薦的餐點嗎？」",
+                next: "encore_day1_02"
             },
             {
-                text: "假裝沒有看見她。",
-                next: "ignore"
+                text: "「抱歉，叫錯人了。」",
+                next: "encore_return"
             }
         ]
     },
 
-    ignore: {
+    encore_return: {
         type: "text",
-        text: "你假裝沒有看見她，默默走到了自己的座位。",
+        text: "她理解地點點頭，蹦跳著回到她的工作崗位。",
+        next: "observe"
+    },
+
+    encore_day1_02: {
+        type: "choice",
+        text: "「那你真是問對人了！」她高興地說道，「全部都很推薦！」",
+        choices: [
+            {
+                text: "「......」",
+                next: "encore_day1_03"
+            },
+
+            {
+                text: "「有更推薦的幾樣嗎？」",
+                next: "encore_day1_04"
+            }
+        ]
+    },
+
+    encore_day1_03: {
+        type: "text",
+        text: "她對你的沉默有些疑惑，歪著頭看著你。",
         next: "end"
     },
 
-    encore_end_01: {
+    encore_day1_04: {
         type: "text",
-        text: "她微笑着向你打招呼，你感到一絲溫暖。\n\n「今天天氣不錯呢。」",
+        text: "「嗯......」\n\n她看上去對這個問題有些困擾。",
         next: "end"
     },
+
 
     end: {
         type: "text",
-        text: "這一段劇情結束了。",
+        text: "未完工。",
         next: null
     }
 };
@@ -131,7 +146,7 @@ function showNode(nodeName) {
 
     storyText.textContent = node.text;
 
-    // 如果進入這個劇情節點會改變數值
+    // 如果進入這段劇情節點會改變數值
     if (node.effects) {
         
         if (node.effects.affection !== undefined) {
@@ -196,10 +211,10 @@ function showNode(nodeName) {
                     }
                 }
 
-                // 更新右上角數值
+                // 更新數值
                 updateStatus();
                 
-                // 前往下一個劇情節點
+                // 前往下一段劇情節點
                 currentNode = choice.next;
                 showNode(currentNode);
 

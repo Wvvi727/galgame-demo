@@ -13,9 +13,7 @@ body {
 }
 
 
-/* ====================
-   日期
-   ==================== */
+/* 日期 */
 
 #day {
     position: absolute;
@@ -26,9 +24,7 @@ body {
 }
 
 
-/* ====================
-   右上角數值
-   ==================== */
+/* 右上角數值 */
 
 #status {
     position: absolute;
@@ -64,9 +60,7 @@ body {
 }
 
 
-/* ====================
-   劇情文字
-   ==================== */
+/* 劇情文字 */
 
 #story {
     position: absolute;
@@ -84,9 +78,7 @@ body {
 }
 
 
-/* ====================
-   選項
-   ==================== */
+/* 選項 */
 
 #choices {
     position: absolute;
@@ -120,9 +112,7 @@ body {
 }
 
 
-/* ====================
-   繼續按鈕
-   ==================== */
+/* 繼續按鈕 */
 
 #next-button {
     position: absolute;
@@ -144,7 +134,7 @@ body {
 }
 
 
-/* 滑鼠移上去 */
+/* 手機 */
 
 button:hover {
     background-color: #555;
@@ -178,7 +168,7 @@ button:hover {
 
         min-height: 0;
 
-        font-size: 17px;
+        font-size: 20px;
         line-height: 1.8;
     }
 
@@ -201,6 +191,15 @@ button:hover {
         padding: 8px 25px;
 
         font-size: 16px;
+    }
+
+    #restart-button {
+        bottom: 25px;
+
+        width: 45px;
+        height: 45px;
+
+        font-size: 22px;
     }
     
 
