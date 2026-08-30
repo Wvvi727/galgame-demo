@@ -1,47 +1,544 @@
+/* ====================
+   首頁
+   ==================== */
+
+#title-screen {
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+
+    background-color: #06111f;
+    background-image: url("assets/backgrounds/title-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+
+    display: flex;
+}
+
+.title-overlay {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0)
+    );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* 遊戲標題 */
+
+#title {
+    position: absolute;
+
+    top: 18%;
+    left: 11%;
+
+    color: white;
+    z-index: 2;
+}
+
+.title-small {
+    font-size: 16px;
+
+    letter-spacing: 8px;
+
+    transform:
+        perspective(500px)
+        rotateY(-15deg)
+        rotateX(8deg)
+        rotateZ(-5deg);
+
+    transform-origin: left center;
+
+    opacity: 0.7;
+}
+
+.title-main {
+    font-size: 64px;
+    font-weight: bold;
+
+    transform:
+        perspective(500px)
+        rotateY(-15deg)
+        rotateX(8deg)
+        rotateZ(-5deg);
+
+    transform-origin: left center;
+}
+
+.title-demo {
+    font-size: 14px;
+
+    letter-spacing: 6px;
+
+    transform:
+        perspective(500px)
+        rotateY(-15deg)
+        rotateX(8deg)
+        rotateZ(-5deg);
+
+    transform-origin: left center;
+
+    opacity: 0.5;
+}
+
+.title-line {
+    width: 180px;
+    height: 4px;
+
+    margin-top: 18px;
+
+    background-color: #168cff;
+
+    transform:
+        perspective(500px)
+        rotateY(-15deg)
+        rotateX(8deg)
+        rotateZ(-5deg);
+
+    transform-origin: left center;
+
+    animation: titleLineIn 0.8s ease-out;
+}
+
+/* 主選單 */
+
+#main-menu {
+    position: absolute;
+
+    top: 55%;
+    left: 10%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+    z-index: 2;
+}
+
+
+/* 主選單按鈕 */
+
+#main-menu button {
+    position: relative;
+
+    padding: 10px 30px 10px 35px;
+
+    background: none;
+    color: white;
+
+    border: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.15s;
+
+    z-index: 1;
+}
+
+#main-menu button::before {
+    content: "▶";
+
+    position: absolute;
+
+    left: 5px;
+
+    opacity: 0;
+
+    transition: 0.15s;
+}
+
+#main-menu button::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 100%;
+
+    background-color: #168cff;
+
+    transform: skewX(-20deg);
+
+    z-index: -1;
+
+    transition: width 0.2s ease;
+}
+
+
+/* 滑鼠移上去 */
+
+#main-menu button:hover {
+    color: white;
+
+    transform: translateX(10px);
+}
+
+#main-menu button:hover::before {
+    opacity: 1;
+}
+
+#main-menu button:hover::after {
+    width: 110%;
+}
+
+/* 設定畫面 */
+
+#settings-screen {
+    display: none;
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    background-color: #06111f;
+
+    z-index: 10;
+}
+
+.settings-title {
+    position: absolute;
+
+    top: 15%;
+    left: 12%;
+
+    font-size: 42px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+}
+
+#back-button {
+    position: absolute;
+
+    left: 12%;
+    bottom: 15%;
+
+    padding: 10px 30px;
+
+    background: none;
+
+    color: white;
+
+    border: none;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: 0.15s;
+}
+
+#back-button:hover {
+    color: #168cff;
+
+    transform: translateX(10px);
+}
+
+
+/* 首頁美編 */
+
+.diagonal-line {
+    position: absolute;
+
+    height: 45px;
+
+    background-color: #168cff;
+
+    transform: rotate(-30deg);
+
+    transform-origin: left center;
+
+    opacity: 0.15;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    clip-path: polygon(
+    5% 0,
+    100% 0,
+    95% 100%,
+    0 100%
+    );
+
+    animation: diagonalMove 8s ease-in-out infinite alternate;
+}
+
+.line-1 {
+    top: 20%;
+    left: 55%;
+    width: 90%;
+}
+
+.line-2 {
+    top: 45%;
+    left: 65%;
+    width: 70%;
+}
+
+.line-3 {
+    top: 70%;
+    left: 75%;
+    width: 50%;
+}
+
+
+/* 轉場 */
+
+#prologue-screen {
+    position: absolute;
+
+    width: 100%;
+    height: 100vh;
+
+    top: 0;
+    left: 0;
+
+    background-color: #06111f;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 20;
+
+    overflow: hidden;
+}
+
+.prologue-title {
+    color: white;
+
+    font-size: 48px;
+
+    font-weight: bold;
+
+    letter-spacing: 10px;
+
+    transform: skewX(-12deg);
+
+    position: relative;
+    z-index: 30;
+}
+
+.prologue-line {
+    width: 220px;
+    height: 8px;
+
+    margin-top: 20px;
+
+    background-color: #168cff;
+
+    transform: skewX(-30deg);
+    transform-origin: center;
+
+    position: relative;
+    z-index: 30;
+
+    animation: prologueLineExpand 1.5s ease-in-out forwards;
+}
+
+
 body {
     margin: 0;
+
     background-color: #111;
     color: white;
+
     font-family: "Microsoft JhengHei", sans-serif;
+
+    overflow: hidden;
 }
+
+
+/* ====================
+   遊戲本體
+   ==================== */
 
 #game {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+
     position: relative;
-    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background-color: #111;
+
+    display: none;
 }
 
 
-/* 日期 */
+/* ====================
+   遊戲背景
+   ==================== */
+
+#background {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("assets/backgrounds/cafe.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+
+    transition: filter 0.3s ease;
+}
+
+
+/* ====================
+   角色立繪
+   ==================== */
+
+#characters {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+.character {
+    position: absolute;
+
+    transform: translateX(-50%);
+
+    object-fit: contain;
+
+    animation: characterFadeIn 1s ease forwards;
+
+    /* 位置、大小、明暗的變化速度 */
+    transition:
+        left var(--move-speed) ease,
+        bottom var(--move-speed) ease,
+        height var(--move-speed) ease,
+        filter 0.3s ease;
+}
+
+/* 沒有說話的角色 */
+.character.dimmed {
+    filter: brightness(0.45);
+}
+
+.character-fade-out {
+    animation: characterFadeOut 1s ease forwards;
+}
+
+#game.choice-active #background,
+#game.choice-active #characters {
+    filter: blur(3px);
+}
+
+@keyframes characterFadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes characterFadeOut {
+
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
+}
+
+
+/* ====================
+   日期
+   ==================== */
 
 #day {
     position: absolute;
+
     top: 30px;
     left: 40px;
 
     font-size: 22px;
+
+    z-index: 5;
 }
 
 
-/* 右上角數值 */
+/* ====================
+   右上角數值
+   ==================== */
 
 #status {
     position: absolute;
+
     top: 30px;
     right: 40px;
 
     padding: 15px 30px;
 
-    background-color: #222;
+    background-color: rgba(34, 34, 34, 0.85);
     border: 1px solid #555;
 
     font-size: 18px;
     line-height: 1.8;
+
+    z-index: 5;
 }
 
 .status-item {
     display: grid;
+
     grid-template-columns: 65px 25px 40px;
 
     line-height: 1.8;
@@ -60,61 +557,220 @@ body {
 }
 
 
-/* 劇情文字 */
+/* ====================
+   對話區域
+   ==================== */
 
-#story {
+#dialogue {
     position: absolute;
 
-    left: 10%;
-    right: 10%;
-    top: 25%;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    min-height: 250px;
+    height: 60%;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 35%,
+    rgba(0, 0, 0, 0.35) 70%,
+    rgba(0, 0, 0, 0) 100%
+    );
+
+}
+
+
+#dialogue-box {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+    bottom: 28%;
+
+    min-height: 180px;
+
+    box-sizing: border-box;
+
+    padding: 50px 30px 20px 30px;
+
+    background: none;
+
+    border: none;
+
+    pointer-events: none;
+}
+
+
+#speaker-name {
+    display: none;
+
+    position: static;
+
+    padding: 0;
+
+    margin-bottom: 10px;
+
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+#speaker-name::after {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+
+    height: 1px;
+
+    margin-top: 8px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* 劇情文字 */
+
+#story-text {
+    margin: 0;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
 
     font-size: 22px;
     line-height: 2;
 
     white-space: pre-line;
+
+    overflow: hidden;
 }
 
 
-/* 選項 */
+/* ====================
+   選項
+   ==================== */
 
 #choices {
     position: absolute;
 
     left: 10%;
     right: 10%;
-    top: 65%;
+
+    bottom: 400px;
+    height: 350px;
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 
-    gap: 15px;
+    justify-content: space-evenly;
+    align-items: center;
+
+    gap: 20px;
+
+    z-index: 100;
 }
-
 
 /* 選項按鈕 */
 
 #choices button {
-    position: static;
+    position: relative;
 
-    padding: 10px 20px;
+    min-width: 350px;
 
-    background-color: #333;
+    padding: 12px 30px 12px 45px;
+
+    background-color: rgba(10, 20, 35, 0.65);
+
+    backdrop-filter: blur(4px);
+
     color: white;
 
-    border: 1px solid #777;
-    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
     font-size: 18px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.15s;
+
+    overflow: hidden;
+
+    z-index: 1;
+}
+
+#choices button::before {
+    content: "▶";
+
+    position: absolute;
+
+    left: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    opacity: 0;
+
+    transition: 0.15s;
+
+    z-index: 2;
+}
+
+#choices button::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 100%;
+
+    background-color: #168cff;
+
+    transform: skewX(-20deg);
+
+    z-index: -1;
+
+    transition: width 0.2s ease;
+}
+
+#choices button:hover {
+    transform: translateX(10px);
+
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#choices button:hover::before {
+    opacity: 1;
+}
+
+#choices button:hover::after {
+    width: 110%;
 }
 
 
-/* 繼續按鈕 */
+/* ====================
+   結局重新開始
+   ==================== */
 
-#next-button {
+#restart-button {
+    display: none;
+
     position: absolute;
 
     bottom: 40px;
@@ -122,23 +778,64 @@ body {
 
     transform: translateX(-50%);
 
-    padding: 10px 30px;
+    width: 50px;
+    height: 50px;
+
+    padding: 0;
 
     background-color: #333;
+
     color: white;
 
     border: 1px solid #777;
+
     cursor: pointer;
 
-    font-size: 18px;
+    font-size: 26px;
+
+    z-index: 10;
+}
+
+
+@keyframes diagonalMove {
+
+    from {
+        transform: rotate(-30deg) translateX(0);
+    }
+
+    to {
+        transform: rotate(-30deg) translateX(30px);
+    }
+}
+
+@keyframes titleLineIn {
+
+    from {
+        width: 0;
+        opacity: 0;
+    }
+
+    to {
+        width: 180px;
+        opacity: 1;
+    }
+    
+}
+
+@keyframes prologueLineExpand {
+
+    0% {
+        width: 220px;
+    }
+
+    100% {
+        width: 120vw;
+    }
+
 }
 
 
 /* 手機 */
-
-button:hover {
-    background-color: #555;
-}
 
 @media (max-width: 600px) {
 
@@ -201,30 +898,5 @@ button:hover {
 
         font-size: 22px;
     }
-    
 
-}
-
-#restart-button {
-    display: none;
-
-    position: absolute;
-
-    bottom: 40px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 50px;
-    height: 50px;
-
-    padding: 0;
-
-    background-color: #333;
-    color: white;
-
-    border: 1px solid #777;
-    cursor: pointer;
-
-    font-size: 26px;
 }

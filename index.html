@@ -7,12 +7,74 @@
 </head>
 
 <body>
-    <div id="game">
-        <div id="day">
+        <!-- 首頁 -->
+    <div id="title-screen">
+
+        <div class="title-overlay"></div>
+
+        <div class="diagonal-line line-1"></div>
+        <div class="diagonal-line line-2"></div>
+        <div class="diagonal-line line-3"></div>
+        
+        <div id="title">
+            <div class="title-small">只是億點爆肝的測試</div>
+            <div class="title-main">ANIMAL CAFE</div>
+            <div class="title-demo">MBDN</div>
+
+            <div class="title-line"></div>
+        </div>
+
+        <div id="main-menu">
+
+            <button id="start-button"><span>START GAME</span></button>
+            <button><span>LOAD GAME</span></button>
+            <button id="settings-button"><span>OPTIONS</span></button>
+            <button><span>EXIT</span></button>
+
+        </div>
+
+        <div id="settings-screen">
+            <div class="settings-title">
+                OPTIONS
+            </div>
+
+            <button id="back-button">
+                BACK
+            </button>
+        </div>
+
+    </div>
+
+    <!-- 遊戲本體 -->
+     <div id="game">
+
+        <!-- Prologue 轉場 -->
+         <div id="prologue-screen">
+            <div class="prologue-title">
+                PROLOGUE
+            </div>
+            
+            <div class="prologue-line"></div>
+        </div>
+        
+        <!-- 遊戲背景 -->
+         <div id="background"></div>
+
+        <!-- 角色立繪 -->
+         <div id="characters">
+            <!-- JavaScript 之後會在這裡放角色 -->
+        </div>
+
+
+        <!-- 日期 -->
+         <div id="day">
             Day 1
         </div>
 
-        <div id="status">
+
+        <!-- 右上角數值 -->
+         <div id="status">
+            
             <div class="status-item">
                 <span class="status-name">好感度</span>
                 <span class="status-colon">：</span>
@@ -24,18 +86,36 @@
                 <span class="status-colon">：</span>
                 <span id="san-value" class="status-value"></span>
             </div>
+
         </div>
 
-        <div id="story">
-            <p id="story-text"></p>
+
+        <!-- 對話區域 -->
+        <div id="dialogue">
+
+            <div id="dialogue-box">
+
+                <!-- 說話者名稱 -->
+                <div id="speaker-name"></div>
+
+                <!-- 劇情文字 -->
+                <p id="story-text"></p>
+
+            </div>
+
         </div>
 
-        <div id="choices"></div>
+        <!-- 選項 -->
+            <div id="choices"></div>
 
-        <button id="next-button">繼續</button>
+
+
+        <!-- 結局重新開始 -->
         <button id="restart-button">↻</button>
-    </div>
 
-    <script src="script.js"></script>
+    </div>    
+
+    <script type="module" src="js/script.js"></script>
+
 </body>
 </html>
